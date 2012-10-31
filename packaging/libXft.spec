@@ -7,8 +7,6 @@ Summary:        X FreeType library
 Url:            http://xorg.freedesktop.org/
 Group:          Development/Libraries/C and C++
 
-#Git-Clone:	git://anongit.freedesktop.org/xorg/lib/libXft
-#Git-Web:	http://cgit.freedesktop.org/xorg/lib/libXft/
 Source:         %{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
@@ -59,7 +57,6 @@ make %{?_smp_mflags}
 
 %install
 %make_install
-rm -f "%{buildroot}/%{_libdir}"/*.la
 
 %post -n %lname -p /sbin/ldconfig
 
