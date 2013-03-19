@@ -1,3 +1,6 @@
+* Mon Mar 18 2013 Anas Nashif <anas.nashif@intel.com> submit/trunk/20121228.055448@15ae24b
+- Fixed package groups
+
 * Thu Dec 27 2012 Anas Nashif <anas.nashif@intel.com> upstream/2.3.1@648e163
 - Do not provide version sub-package
 
