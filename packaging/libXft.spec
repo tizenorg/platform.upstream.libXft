@@ -6,6 +6,7 @@ Summary:        X FreeType library
 Url:            http://xorg.freedesktop.org/
 Group:          Graphics/X Window System
 Source:         %{name}-%{version}.tar.bz2
+Source1001: 	libXft.manifest
 BuildRequires:  autoconf >= 2.60
 BuildRequires:  automake
 BuildRequires:  libtool
@@ -36,6 +37,7 @@ in libXft.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 autoreconf -fi
@@ -50,11 +52,13 @@ make %{?_smp_mflags}
 %postun  -p /sbin/ldconfig
 
 %files 
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %license COPYING
 %{_libdir}/libXft.so.2*
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %{_includedir}/X11/Xft
 %{_libdir}/libXft.so
