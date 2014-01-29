@@ -1,3 +1,5 @@
+%bcond_with x
+
 Name:           libXft
 Version:        2.3.1
 Release:        0
@@ -16,6 +18,10 @@ BuildRequires:  pkgconfig(freetype2) >= 2.1.6
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xorg-macros) >= 1.8
 BuildRequires:  pkgconfig(xrender) >= 0.8.2
+
+%if !%{with x}
+ExclusiveArch:
+%endif
 
 %description
 Xft is a library that connects X applications with the FreeType font
@@ -51,7 +57,7 @@ make %{?_smp_mflags}
 
 %postun  -p /sbin/ldconfig
 
-%files 
+%files
 %manifest %{name}.manifest
 %defattr(-,root,root)
 %license COPYING
